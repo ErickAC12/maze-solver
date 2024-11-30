@@ -42,3 +42,21 @@ class Cell:
                 ),
                 "black"
             )
+
+    def draw_move(self, to_cell, undo=False):
+        center1 = Point((self._x1 + self._x2) / 2, (self._y1 + self._y2) / 2)
+        center2 = Point((to_cell._x1 + to_cell._x2) / 2, (to_cell._y1 + to_cell._y2) / 2)
+        if undo:
+            self._window.draw_line(
+                Line(
+                    center1, center2
+                ),
+                "gray"
+            )
+        else:
+            self._window.draw_line(
+                Line(
+                    center1, center2
+                ),
+                "red"
+            )
