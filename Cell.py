@@ -35,12 +35,26 @@ class Cell:
                 ),
                 "black"
             )
+        else:
+            self._window.draw_line(
+                Line(
+                    Point(self._x1, self._y1), Point(self._x2, self._y1)
+                ),
+                "#d9d9d9"
+            )
         if self.has_bottom_wall:
             self._window.draw_line(
                 Line(
                     Point(self._x1, self._y2), Point(self._x2, self._y2)
                 ),
                 "black"
+            )
+        else:
+            self._window.draw_line(
+                Line(
+                    Point(self._x1, self._y2), Point(self._x2, self._y2)
+                ),
+                "#d9d9d9"
             )
 
     def draw_move(self, to_cell, undo=False):
