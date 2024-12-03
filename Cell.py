@@ -7,6 +7,7 @@ class Cell:
         self.has_right_wall = True
         self.has_top_wall = True
         self.has_bottom_wall = True
+        self.visited = False
         self._x1 = x1
         self._y1 = y1
         self._x2 = x2
@@ -21,12 +22,26 @@ class Cell:
                 ),
                 "black"
             )
+        else:
+            self._window.draw_line(
+                Line(
+                    Point(self._x1, self._y1), Point(self._x1, self._y2)
+                ),
+                "#d9d9d9"
+            )
         if self.has_right_wall:
             self._window.draw_line(
                 Line(
                     Point(self._x2, self._y1), Point(self._x2, self._y2)
                 ),
                 "black"
+            )
+        else:
+            self._window.draw_line(
+                Line(
+                    Point(self._x2, self._y1), Point(self._x2, self._y2)
+                ),
+                "#d9d9d9"
             )
         if self.has_top_wall:
             self._window.draw_line(
